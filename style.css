@@ -1279,15 +1279,15 @@ h3 {
 
 .smart-product:hover {
 	transform: translateY(-6px);
-	box-shadow: 0 18px 45px rgba(249, 249, 2, 0.12)
+	box-shadow: 0 18px 45px rgba(30, 59, 39, .12)
 }
 
 .smart-product-image {
-	height: 150px;
-	background: #ef910e;
+	height: 190px;
+	background: #057a4b;
 	display: grid;
 	place-items: center;
-	padding: 10px
+	padding: 14px
 }
 
 .smart-product-image img {
@@ -1596,4 +1596,302 @@ img[loading="lazy"].loaded {
 		opacity: 1;
 		transform: scale(1);
 	}
+}
+
+
+/* ================= New product advertisement (home page) ================= */
+.promo-section {
+	position: relative;
+	padding: 80px 0 90px;
+	background: radial-gradient(circle at 12% 10%, rgba(248, 184, 72, .22), transparent 45%),
+		linear-gradient(135deg, #1E3B27 0%, #2F5D3C 60%, #3D8D53 100%);
+	overflow: hidden;
+}
+
+.promo-head {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 14px 22px;
+	margin-bottom: 30px;
+}
+
+.promo-head h2 {
+	color: #fff;
+	margin: 0;
+	font-size: clamp(30px, 4.5vw, 52px);
+}
+
+.promo-head h2 span {
+	color: var(--yellow);
+}
+
+.promo-tag {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 16px;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, .14);
+	color: var(--yellow);
+	font-weight: 800;
+	font-size: 12px;
+	letter-spacing: .14em;
+	text-transform: uppercase;
+}
+
+.promo-carousel {
+	background: #fff;
+	border-radius: 28px;
+	box-shadow: 0 30px 70px rgba(0, 0, 0, .28);
+	overflow: hidden;
+}
+
+.promo-slide {
+	display: grid;
+	grid-template-columns: 1fr 1.1fr;
+	min-height: 440px;
+}
+
+.promo-copy {
+	padding: 48px 44px 70px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.promo-badge {
+	background: var(--orange-deep);
+	color: #fff;
+	font-weight: 800;
+	font-size: 12px;
+	letter-spacing: .16em;
+	padding: 6px 14px;
+	border-radius: 999px;
+	margin-bottom: 14px;
+	animation: promoPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes promoPulse {
+	0%, 100% { box-shadow: 0 0 0 0 rgba(217, 113, 31, .5); }
+	50% { box-shadow: 0 0 0 10px rgba(217, 113, 31, 0); }
+}
+
+.promo-copy h3 {
+	font-size: clamp(28px, 3.4vw, 42px);
+	color: var(--navy-deep);
+	margin-bottom: 6px;
+}
+
+.promo-sub {
+	color: var(--orange-deep);
+	font-weight: 800;
+	margin-bottom: 12px;
+}
+
+.promo-copy p {
+	color: var(--ink-soft);
+	max-width: 46ch;
+}
+
+.promo-points {
+	list-style: none;
+	padding: 0;
+	margin: 6px 0 22px;
+	display: grid;
+	gap: 8px;
+	font-weight: 700;
+	color: var(--navy-deep);
+}
+
+.promo-points i {
+	color: var(--green);
+	margin-right: 6px;
+}
+
+.promo-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.btn-promo,
+.btn-promo-ghost {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 24px;
+	border-radius: 999px;
+	font-weight: 800;
+	text-decoration: none;
+	transition: transform .2s ease, background .2s ease, color .2s ease;
+}
+
+.btn-promo {
+	background: var(--orange-deep);
+	color: #fff;
+}
+
+.btn-promo:hover {
+	background: var(--navy-deep);
+	color: #fff;
+	transform: translateY(-2px);
+}
+
+.btn-promo-ghost {
+	border: 2px solid var(--navy-deep);
+	color: var(--navy-deep);
+}
+
+.btn-promo-ghost:hover {
+	background: var(--navy-deep);
+	color: #fff;
+}
+
+.promo-media {
+	position: relative;
+	display: grid;
+	place-items: center;
+	padding: 24px;
+	overflow: hidden;
+	background: #eef3ef;
+}
+
+/* blurred copy of the photo fills empty space so the picture is never cropped */
+.promo-media::before {
+	content: "";
+	position: absolute;
+	inset: -30px;
+	background: var(--promo-bg) center / cover no-repeat;
+	filter: blur(28px) saturate(1.1);
+	opacity: .55;
+}
+
+.promo-media img {
+	position: relative;
+	max-width: 100%;
+	max-height: 400px;
+	width: auto;
+	height: auto;
+	object-fit: contain;
+	border-radius: 18px;
+	box-shadow: 0 18px 40px rgba(0, 0, 0, .22);
+}
+
+.promo-controls {
+	position: absolute;
+	left: 44px;
+	bottom: 22px;
+	right: 44px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	pointer-events: none;
+	z-index: 5;
+}
+
+.promo-controls > * {
+	pointer-events: auto;
+}
+
+.promo-dots {
+	display: flex;
+	gap: 8px;
+}
+
+.promo-dots button {
+	width: 26px;
+	height: 6px;
+	border: 0;
+	padding: 0;
+	border-radius: 6px;
+	background: rgba(30, 59, 39, .25);
+	transition: width .25s ease, background .25s ease;
+}
+
+.promo-dots button.active {
+	width: 46px;
+	background: var(--orange-deep);
+}
+
+.promo-arrows {
+	display: flex;
+	gap: 8px;
+}
+
+.promo-arrows button {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 0;
+	background: var(--navy-deep);
+	color: #fff;
+	transition: background .2s ease;
+}
+
+.promo-arrows button:hover {
+	background: var(--orange-deep);
+}
+
+@media (max-width: 991px) {
+	.promo-slide {
+		grid-template-columns: 1fr;
+	}
+
+	.promo-media {
+		order: -1;
+		padding: 18px;
+	}
+
+	.promo-media img {
+		max-height: 300px;
+	}
+
+	.promo-copy {
+		padding: 28px 24px 78px;
+	}
+
+	.promo-controls {
+		left: 24px;
+		right: 24px;
+	}
+}
+
+@media (max-width: 575px) {
+	.promo-section {
+		padding: 56px 0 64px;
+	}
+
+	.promo-media img {
+		max-height: 240px;
+	}
+}
+
+/* keep Bootstrap's indicator behaviour but use our own look */
+.promo-dots.carousel-indicators {
+	position: static;
+	margin: 0;
+	padding: 0;
+	justify-content: flex-start;
+}
+
+.promo-dots.carousel-indicators button {
+	flex: none;
+	box-sizing: border-box;
+	margin: 0;
+	border: 0;
+	opacity: 1;
+	height: 6px;
+}
+
+.promo-dots.carousel-indicators button {
+	width: 26px;
+	border-radius: 6px;
+	background-color: rgba(30, 59, 39, .25);
+}
+
+.promo-dots.carousel-indicators button.active {
+	width: 46px;
+	background-color: var(--orange-deep);
 }
